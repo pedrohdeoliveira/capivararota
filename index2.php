@@ -1,0 +1,302 @@
+<?php
+// 1. DADOS E SEO
+require_once 'data/content.php';
+$page_title = "Montanhismo, Expedições e Educação Ambiental";
+$page_description = "Você não precisa conhecer a montanha. Precisa saber com quem entrar nela. Experiências outdoor planejadas, responsáveis e autênticas.";
+
+include 'includes/header.php';
+include 'includes/navbar.php';
+
+// Função auxiliar para tratar caminho das imagens
+function getCaminhoImagemHero($imagem) {
+    if (empty($imagem)) return 'assets/img/sobre-foto.avif';
+    return (strpos($imagem, 'assets/img/') === 0) ? $imagem : 'assets/img/' . $imagem;
+}
+?>
+
+<!-- 1. HERO BANNER ÚNICO (INSTITUCIONAL & POSICIONAMENTO) -->
+<section class="relative min-h-[85vh] md:h-[90vh] w-full overflow-hidden bg-slate-900 flex items-start md:items-center pt-12 md:pt-0">
+    <div class="absolute inset-0 h-full w-full">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-black/50 z-10"></div>
+        
+        <picture>
+            <source media="(max-width: 767px)" srcset="assets/img/serra-fina-10.avif">
+            <img src="assets/img/serra-fina-10.avif" alt="Capivara Rota - Montanhismo e Expedições" class="absolute inset-0 w-full h-full object-cover object-center">
+        </picture>
+    </div>
+
+    <div class="relative z-20 w-full py-8 md:py-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-white text-left">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-emerald-600 text-white text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-widest mb-3 md:mb-6 shadow-lg">
+                    Posicionamento &amp; Segurança Outdoor
+                </span>
+                <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-3 md:mb-6 leading-tight tracking-tight">
+                    Você não precisa conhecer a montanha. <br class="hidden sm:inline">
+                    <span class="text-emerald-400">Precisa saber com quem entrar nela.</span>
+                </h1>
+                <p class="text-base md:text-2xl text-slate-200 mb-6 md:mb-10 font-light leading-relaxed">
+                    Experiências outdoor planejadas, responsáveis e autênticas na Mantiqueira, Bocaina e Paraty, guiadas por quem domina o território.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-3 md:gap-4">
+                    <a href="#jornada" 
+                       class="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-3.5 md:py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-emerald-500/20 text-center">
+                        Descobrir Meu Nível
+                    </a>
+                    <a href="https://wa.me/<?= $site_data['info']['whatsapp'] ?>" 
+                       target="_blank"
+                       class="bg-white/10 backdrop-blur-md text-white hover:bg-white/20 px-8 py-3.5 md:py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all border border-white/20 text-center">
+                        Falar com a Capivara no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. PILARES DE CONFIANÇA & REDUÇÃO DO MEDO -->
+<section class="py-16 bg-white border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="flex items-start gap-4">
+            <div class="bg-emerald-100 p-3 rounded-2xl text-emerald-700 shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800 text-base mb-1">Domínio do Território</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Conhecimento profundo das rotas, clima e particularidades da Serra do Mar e Mantiqueira.</p>
+            </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+            <div class="bg-emerald-100 p-3 rounded-2xl text-emerald-700 shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800 text-base mb-1">Segurança Rigorosa</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Guia com certificação internacional WFA (Primeiros Socorros em Áreas Remotas) e seguro total.</p>
+            </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+            <div class="bg-emerald-100 p-3 rounded-2xl text-emerald-700 shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800 text-base mb-1">Logística Resolvida</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Suporte de veículo 4x4, alimentação de montanha e checagem individual de equipamentos.</p>
+            </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+            <div class="bg-emerald-100 p-3 rounded-2xl text-emerald-700 shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800 text-base mb-1">Progressão Técnica</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Evolua no seu ritmo: da primeira caminhada contemplativa até travessias de alta exigência.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. VITRINE DE ROTEIROS DINÂMICA POR JORNADA / MODALIDADE -->
+<section id="jornada" class="py-24 bg-slate-50 px-6">
+    <div class="max-w-7xl mx-auto space-y-16">
+        
+        <div class="text-center max-w-3xl mx-auto">
+            <span class="text-emerald-700 font-bold uppercase tracking-widest text-xs">Sua Jornada Outdoor</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mt-2 mb-4">Escolha a experiência ideal para o seu momento</h2>
+            <p class="text-slate-600 text-lg">Nosso portfólio é organizado por níveis de progressão. Não importa onde você está hoje, nós conduzimos sua evolução com segurança.</p>
+            <div class="w-16 h-1 bg-emerald-600 mt-4 rounded-full mx-auto"></div>
+        </div>
+
+        <!-- MODALIDADE 1: INICIANTE -->
+        <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-slate-200/60">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Nível 01</span>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-2">Iniciante (Sua Primeira Experiência)</h3>
+                    <p class="text-slate-500 text-sm mt-1">Ideal para quem quer começar na montanha com conforto, pernoite em abrigo/cabana e zero preocupação operacional.</p>
+                </div>
+                <a href="roteiros.php?nivel=iniciante" class="text-emerald-700 font-bold text-sm hover:underline shrink-0">Ver todos deste nível &rarr;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <?php 
+                $count_iniciante = 0;
+                foreach ($site_data['roteiros'] as $slug => $roteiro): 
+                    if (isset($roteiro['nivel']) && strtolower($roteiro['nivel']) === 'iniciante'):
+                        $count_iniciante++;
+                        if ($count_iniciante > 3) break;
+                ?>
+                    <a href="roteiro-detalhe.php?v=<?= $slug ?>" class="group relative rounded-3xl overflow-hidden bg-slate-900 h-80 block shadow-md hover:shadow-xl transition-all">
+                        <img src="<?= getCaminhoImagemHero($roteiro['imagem_hero']) ?>" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-70" alt="<?= $roteiro['titulo'] ?>">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 z-10">
+                            <span class="text-emerald-400 font-semibold text-xs uppercase tracking-wider block mb-1">
+                                <?= isset($roteiro['duracao']) ? $roteiro['duracao'] : 'Iniciante' ?>
+                            </span>
+                            <h4 class="text-xl font-bold text-white mb-2"><?= $roteiro['titulo'] ?></h4>
+                            <p class="text-slate-300 text-xs line-clamp-2"><?= isset($roteiro['resumo']) ? $roteiro['resumo'] : '' ?></p>
+                        </div>
+                    </a>
+                <?php 
+                    endif;
+                endforeach; 
+                ?>
+            </div>
+        </div>
+
+        <!-- MODALIDADE 2: INTERMEDIÁRIO -->
+        <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-slate-200/60">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Nível 02</span>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-2">Intermediário (Sua Primeira Travessia)</h3>
+                    <p class="text-slate-500 text-sm mt-1">Para quem já faz trilhas de 1 dia e quer vivenciar acampamentos, travessias e desafios moderados.</p>
+                </div>
+                <a href="roteiros.php?nivel=intermediario" class="text-emerald-700 font-bold text-sm hover:underline shrink-0">Ver todos deste nível &rarr;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <?php 
+                $count_inter = 0;
+                foreach ($site_data['roteiros'] as $slug => $roteiro): 
+                    if (isset($roteiro['nivel']) && strtolower($roteiro['nivel']) === 'intermediario'):
+                        $count_inter++;
+                        if ($count_inter > 3) break;
+                ?>
+                    <a href="roteiro-detalhe.php?v=<?= $slug ?>" class="group relative rounded-3xl overflow-hidden bg-slate-900 h-80 block shadow-md hover:shadow-xl transition-all">
+                        <img src="<?= getCaminhoImagemHero($roteiro['imagem_hero']) ?>" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-70" alt="<?= $roteiro['titulo'] ?>">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 z-10">
+                            <span class="text-amber-400 font-semibold text-xs uppercase tracking-wider block mb-1">
+                                <?= isset($roteiro['duracao']) ? $roteiro['duracao'] : 'Intermediário' ?>
+                            </span>
+                            <h4 class="text-xl font-bold text-white mb-2"><?= $roteiro['titulo'] ?></h4>
+                            <p class="text-slate-300 text-xs line-clamp-2"><?= isset($roteiro['resumo']) ? $roteiro['resumo'] : '' ?></p>
+                        </div>
+                    </a>
+                <?php 
+                    endif;
+                endforeach; 
+                ?>
+            </div>
+        </div>
+
+        <!-- MODALIDADE 3: AVANÇADO -->
+        <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-sm border border-slate-200/60">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Nível 03</span>
+                    <h3 class="text-2xl font-bold text-slate-800 mt-2">Avançado (Alta Exigência &amp; Montanha)</h3>
+                    <p class="text-slate-500 text-sm mt-1">Expedições técnicas, terrenos rochosos expostos e travessias exigentes que requerem preparo físico e orientação especializada.</p>
+                </div>
+                <a href="roteiros.php?nivel=avancado" class="text-emerald-700 font-bold text-sm hover:underline shrink-0">Ver todos deste nível &rarr;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <?php 
+                $count_avancado = 0;
+                foreach ($site_data['roteiros'] as $slug => $roteiro): 
+                    if (isset($roteiro['nivel']) && strtolower($roteiro['nivel']) === 'avancado'):
+                        $count_avancado++;
+                        if ($count_avancado > 3) break;
+                ?>
+                    <a href="roteiro-detalhe.php?v=<?= $slug ?>" class="group relative rounded-3xl overflow-hidden bg-slate-900 h-80 block shadow-md hover:shadow-xl transition-all">
+                        <img src="<?= getCaminhoImagemHero($roteiro['imagem_hero']) ?>" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-70" alt="<?= $roteiro['titulo'] ?>">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 z-10">
+                            <span class="text-red-400 font-semibold text-xs uppercase tracking-wider block mb-1">
+                                <?= isset($roteiro['duracao']) ? $roteiro['duracao'] : 'Avançado' ?>
+                            </span>
+                            <h4 class="text-xl font-bold text-white mb-2"><?= $roteiro['titulo'] ?></h4>
+                            <p class="text-slate-300 text-xs line-clamp-2"><?= isset($roteiro['resumo']) ? $roteiro['resumo'] : '' ?></p>
+                        </div>
+                    </a>
+                <?php 
+                    endif;
+                endforeach; 
+                ?>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 4. QUEM TE CONDUZ (PEDRO COMO ATIVO DE AUTORIDADE) -->
+<section id="sobre" class="py-24 bg-white px-6 overflow-hidden">
+    <div class="max-w-5xl mx-auto">
+        <div class="bg-slate-50 rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 border border-slate-100 shadow-sm">
+            
+            <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
+                <div class="absolute inset-0 border-2 border-emerald-700 rounded-full translate-x-3 translate-y-3"></div>
+                <img src="images/pedro-capivara-missao.avif" 
+                     alt="Pedro Oliveira - Fundador e Guia Ambientalista" 
+                     class="w-full h-full object-cover rounded-full relative z-10 shadow-lg border-4 border-white">
+            </div>
+
+            <div class="flex-1 text-center md:text-left">
+                <span class="text-emerald-700 font-bold uppercase tracking-widest text-xs block mb-2">Quem Te Conduz</span>
+                <h3 class="text-3xl font-bold text-slate-800 mb-6">Mais que conduzir um grupo, <br><span class="text-emerald-700">entregar a confiança para explorar.</span></h3>
+                
+                <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
+                    A Capivara Rota foi fundada por mim, Pedro Oliveira, com o propósito de conectar pessoas ao meio ambiente através do conhecimento territorial, da preparação técnica e da segurança absoluta.
+                </p>
+                <p class="text-slate-600 text-base leading-relaxed mb-8">
+                    Não operamos turismo de massa. Cada expedição é planejada com rigor logístico, avaliação prévia de participantes e certificação internacional em primeiros socorros em áreas remotas.
+                </p>
+                
+                <div class="flex flex-col md:flex-row md:items-center gap-2">
+                    <span class="font-bold text-slate-900 text-lg uppercase tracking-wider">Pedro Oliveira</span>
+                    <span class="hidden md:block text-slate-300">|</span>
+                    <span class="text-emerald-700 font-medium uppercase text-xs tracking-widest">Fundador &amp; Guia Ambientalista (WFA)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. SEÇÃO PARCERIA COROS -->
+<section id="parceria-coros" class="py-20 bg-slate-900 text-white px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div>
+            <div class="mb-6 inline-block bg-[#f7f7f7] p-4 rounded-2xl shadow-md">
+                <img src="images/logo-coros.webp" 
+                     alt="COROS Logo" 
+                     class="h-12 md:h-14 w-auto object-contain rounded-lg block">
+            </div>
+
+            <span class="text-emerald-400 font-bold uppercase tracking-[0.2em] text-xs block mb-3">Parceria Oficial &amp; Equipamento Técnico</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                Precisão e Performance na Montanha com <span class="text-emerald-400">COROS</span>
+            </h2>
+            <p class="text-slate-300 text-lg leading-relaxed mb-6 font-light">
+                Em nossas expedições de alta exigência, a navegação precisa, o monitoramento de altitude e a autonomia de bateria são fundamentais para a segurança do grupo.
+            </p>
+            <p class="text-slate-300 text-lg leading-relaxed mb-8 font-light">
+                Através da nossa parceria com a <strong class="text-white">COROS Brasil</strong>, garantimos acesso aos melhores relógios de GPS de aventura e monitoramento esportivo do mercado.
+            </p>
+            
+            <a href="https://www.coros.com.br/?ref=ruldb5ht&amp;utm_medium=Pedro%20Henrique%20De%20Oliveira&amp;utm_source=parceirando" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-emerald-500/20">
+                <span>Conhecer a Loja COROS</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+        </div>
+
+        <div class="relative flex justify-center">
+            <div class="relative max-w-md w-full">
+                <div class="absolute -inset-2 bg-emerald-500/20 rounded-3xl blur-xl"></div>
+                <img src="images/coros-0002.webp" 
+                     alt="Relógio de Ação COROS na montanha" 
+                     class="relative rounded-3xl shadow-2xl w-full h-[450px] object-cover border border-slate-800">
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php include 'includes/footer.php'; ?>

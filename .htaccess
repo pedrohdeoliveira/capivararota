@@ -1,0 +1,19 @@
+# Ativa o motor de reescrita de URLs do Apache
+RewriteEngine On
+
+# 1. FORÇAR SEM WWW: Se o usuário digitar com www, redireciona 301 para a versão limpa
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# 2. FORÇAR HTTPS: Garante o tráfego seguro por SSL
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# 3. ESCONDER .PHP: Permite acessar /sobre em vez de /sobre.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# 4. REDIRECIONAR .PHP REAL: Se alguém digitar explicitamente .php, limpa a URL
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php
+RewriteRule ^([^\ ]+)\.php$ https://%{HTTP_HOST}/$1 [R=301,L]
